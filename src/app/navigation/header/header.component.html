@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" [class.darktheme]="darktheme">
+    <div fxHide.gt-xs><button mat-icon-button (click)="ontoggle()"><mat-icon>menu</mat-icon></button>
+    </div>
+    <div>
+        <a routerLink="/">Ng-Fitness</a>
+        <mat-slide-toggle (click)="changeTheme()">
+            <mat-icon>bedtime</mat-icon>
+        </mat-slide-toggle>
+    </div>
+    <div fxLayout fxFlex fxLayoutAlign="flex-end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="10px" class="nav-items">
+            <li *ngIf="!(Isauth|async)"><a routerLink="/signup">Signup</a></li>
+            <li *ngIf="!(Isauth|async)"><a routerLink="/login">Login</a></li>
+            <li *ngIf="Isauth|async"><a routerLink="/training">Training</a></li>
+            <li *ngIf="Isauth|async"><a style="cursor: pointer;" (click)="onlogout()">Log out</a></li>
+        </ul>
+
+    </div>
+</mat-toolbar>
